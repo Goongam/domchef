@@ -1,7 +1,7 @@
 import React from "dom-chef";
 
 const handleClick = (e) => {
-  window.scrollTo(0, 0);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
 const handleChange = (e) => {
@@ -10,13 +10,7 @@ const handleChange = (e) => {
     "#primary > ytd-rich-grid-renderer"
   ).style = `--ytd-rich-grid-slim-items-per-row:${value}`;
 };
-// npm run build  -> bundle.js -> git push ->
-/*
-var script = document.createElement('script');
-script.src = 'https://goongam.github.io/domchef/dist/bundle.js';
-document.head.appendChild(script);
-코드 삽입
-*/
+
 const el = (
   <div style={{ position: "fixed", bottom: "10px", right: "10px" }}>
     <input
