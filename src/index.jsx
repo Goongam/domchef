@@ -4,24 +4,22 @@ const handleClick = (e) => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
-const handleChange = (e) => {
-  const value = e.target.value;
-  document.querySelector(
-    "#primary > ytd-rich-grid-renderer"
-  ).style = `--ytd-rich-grid-slim-items-per-row:${value}`;
-};
-
 const el = (
   <div style={{ position: "fixed", bottom: "10px", right: "10px" }}>
-    <input
-      style={{ width: "30px" }}
-      type="number"
-      onChange={handleChange}
-    ></input>
+    <img className="thum" src="" />
     <button className="btn-link" onClick={handleClick}>
       ^
     </button>
   </div>
 );
+
+document.addEventListener("mousemove", function (event) {
+  let target = event.target;
+  if (target.tagName.toLowerCase() === "img") {
+    document.querySelector(".thum").src = target.src;
+  } else {
+    document.querySelector(".thum").src = "";
+  }
+});
 
 document.body.appendChild(el);
